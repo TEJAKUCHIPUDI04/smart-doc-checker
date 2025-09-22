@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartDoc AI - Document Analysis Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="bg-animation"></div>
+    
+    <!-- Main Container -->
+    <div class="container">
+        
+        <!-- Top Navigation -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div class="brand-info">
+                    <h1>SmartDoc AI</h1>
+                    <span>Document Intelligence</span>
+                </div>
+            </div>
+            
+            <div class="nav-stats">
+                <div class="stat">
+                    <span class="value" id="totalDocs">0</span>
+                    <span class="label">Documents</span>
+                </div>
+                <div class="stat">
+                    <span class="value" id="totalIssues">0</span>
+                    <span class="label">Issues Found</span>
+                </div>
+                <div class="system-status online">
+                    <i class="fas fa-circle"></i>
+                    <span>System Online</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Enterprise Document Intelligence</h2>
+                <p>Advanced AI-powered contradiction detection and document analysis</p>
+                
+                <div class="action-buttons">
+                    <button class="btn primary" id="startAnalysisBtn">
+                        <i class="fas fa-rocket"></i>
+                        Start Analysis
+                    </button>
+                    <button class="btn secondary" id="uploadFilesBtn">
+                        <i class="fas fa-upload"></i>
+                        Upload Documents
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Upload Section -->
+        <section class="upload-section">
+            <h3><i class="fas fa-cloud-upload-alt"></i> Document Upload Center</h3>
+            
+            <div class="upload-zone" id="uploadZone">
+                <input type="file" id="fileInput" multiple accept=".pdf,.docx,.txt" style="display: none;">
+                <div class="upload-content">
+                    <div class="upload-icon">
+                        <i class="fas fa-file-upload"></i>
+                    </div>
+                    <h4>Drop documents here or click to browse</h4>
+                    <p>Supports PDF, DOCX, TXT files • Secure processing • AI-powered analysis</p>
+                </div>
+            </div>
+            
+            <div class="files-list" id="filesList"></div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="results-section" id="resultsSection" style="display: none;">
+            <h3><i class="fas fa-search"></i> Analysis Results</h3>
+            
+            <div class="results-grid">
+                <div class="summary-cards">
+                    <div class="summary-card">
+                        <div class="card-icon total">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="card-info">
+                            <span class="card-value" id="totalContradictions">0</span>
+                            <span class="card-label">Total Contradictions</span>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <div class="card-icon severity">
+                            <i class="fas fa-thermometer-half"></i>
+                        </div>
+                        <div class="card-info">
+                            <span class="card-value" id="avgSeverity">0%</span>
+                            <span class="card-label">Average Severity</span>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <div class="card-icon time">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="card-info">
+                            <span class="card-value" id="analysisTime">0s</span>
+                            <span class="card-label">Processing Time</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contradictions-container" id="contradictionsContainer"></div>
+            
+            <div class="export-section">
+                <button class="btn primary" id="exportBtn">
+                    <i class="fas fa-download"></i>
+                    Download Report
+                </button>
+                <button class="btn secondary" id="newAnalysisBtn">
+                    <i class="fas fa-plus"></i>
+                    New Analysis
+                </button>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <h3 id="loadingTitle">AI Analysis in Progress</h3>
+            <p id="loadingText">Analyzing documents for contradictions...</p>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
